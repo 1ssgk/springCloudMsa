@@ -1,0 +1,12 @@
+/*
+ 홍길동, 860824-1655068    XuXfYvPwSxcaOOkFr7nKxA==
+ 김둘리, 921108-1582816    7C/JeeKz9lV+cMdsEIL+vw==
+ 마징가, 880601-2455116    ETSazzN0fdyZvBRow2+J5A==
+ 베지터, 910411-1656116    NqAxseg6FWumlSLIHenusQ==
+ 손오공, 820326-2715702    WeWmO1Sct0KHnN3g9tvU9w==
+*/
+
+
+
+INSERT INTO AUTHORITY (AUTHORITY_NAME) values ('ROLE_USER');
+
