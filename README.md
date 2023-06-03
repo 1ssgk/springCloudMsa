@@ -28,7 +28,7 @@ Spring OAuth2 를 이용한 로그인 인증방식을 구현한 서버이다.
 
 Spring Cloud Netflix Eureka Server 이다.
 
-Dicovery 서버로서 서비스에서 사용하는 서버들의 목적지를 관리하는 서버
+Discovery 서버로서 서비스에서 사용하는 서버들의 목적지를 관리하는 서버
 
 </br>
 </br>
