@@ -1,4 +1,4 @@
-package com.spring.authserver.config;
+package com.msa.userservice.global.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,14 +16,13 @@ public class CorsConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         config.setAllowCredentials(true);
-        config.setAllowedOrigins(List.of("http://localhost:3009"));
-        config.setAllowedMethods(List.of("GET","POST","DELETE","PATCH","OPTIONS"));
+        config.setAllowedOrigins(List.of("http://localhost:3009","https://accounts.google.com","http://localhost:40001"));
+        config.setAllowedMethods(List.of("GET","POST","PUT","DELETE","PATCH","OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setExposedHeaders(List.of("*"));
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**",config);
-
         return source;
     }
 }

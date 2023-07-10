@@ -1,4 +1,4 @@
-package com.justpickup.customerapigatewayservice.filter;
+package com.springcloud.apigateway.filter;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -47,9 +48,12 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
             }
 
             String authorizationHeader = headers.get(HttpHeaders.AUTHORIZATION).get(0);
-
             // JWT 토큰 판별
-            String token = authorizationHeader.replace("Bearer", "");
+            String token = authorizationHeader.replace("Bearer", "").trim();
+            if(!StringUtils.hasText(token)){
+                return onError(exchange, "No authorization header", HttpStatus.UNAUTHORIZED);
+            }
+
 
             jwtTokenProvider.validateJwtToken(token);
 

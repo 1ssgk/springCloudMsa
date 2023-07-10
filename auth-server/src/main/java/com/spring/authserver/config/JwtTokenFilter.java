@@ -24,7 +24,6 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         // Refresh Token 검증
-        System.out.println("JwtTokenFilter 입니당.");
         Cookie[] cookies = request.getCookies();
         Cookie authCookie = cookies == null ? null : Arrays.stream(cookies)
                 .filter(cookie -> cookie.getName().equals("RID"))

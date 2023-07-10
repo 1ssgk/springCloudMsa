@@ -14,6 +14,6 @@ VOLUME /tmp
 
 #COPY build/libs/subject-1.0.jar app.jar
 
-COPY --from=builder /build/build/libs/configserver-1.0.jar ./app.jar
+COPY --from=builder /build/build/libs/apigateway-0.0.1-SNAPSHOT.jar ./app.jar
 
 ENTRYPOINT ["java","-jar","app.jar"]

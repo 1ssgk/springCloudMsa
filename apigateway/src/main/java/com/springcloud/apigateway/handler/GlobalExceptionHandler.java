@@ -23,11 +23,11 @@ public class GlobalExceptionHandler implements ErrorWebExceptionHandler {
 
     @Autowired
     private ObjectMapper objectMapper;
-
+    // eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjg4NzE3OTM3LCJleHAiOjE2ODg3MTgwNDUsInJvbGUiOiJST0xFX1VTRVIifQ.SIegPWEgPvCXz9oDG7VB6BBqrHwLu5T8kkJLL-h3axk
     @Override
     public Mono<Void> handle(ServerWebExchange exchange, Throwable ex) {
         List<Class<? extends RuntimeException>> jwtExceptions =
-                List.of(SignatureException.class,
+                List.of(SecurityException.class,
                         MalformedJwtException.class,
                         UnsupportedJwtException.class,
                         IllegalArgumentException.class);
