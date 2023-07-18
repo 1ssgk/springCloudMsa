@@ -1,0 +1,16 @@
+[[api-reissue]]
+== 토큰 재발행 (User Register API)
+Refresh Token 을 이용하여 토큰을 재발행 합니다.
+
+====== 요청 형식
+include::{snippets}/reissue/http-request.adoc[]
+include::{snippets}/reissue/request-fields.adoc[]
+====== Request Body
+include::{snippets}/reissue/request-body.adoc[]
+====== 응답 형식
+include::{snippets}/reissue/http-response.adoc[]
+include::{snippets}/reissue/response-fields.adoc[]
+====== Response Body
+include::{snippets}/reissue/response-body.adoc[]
+====== Try with curl
+include::{snippets}/reissue/curl-request.adoc[]

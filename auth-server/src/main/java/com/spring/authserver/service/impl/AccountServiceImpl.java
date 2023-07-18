@@ -130,7 +130,7 @@ public class AccountServiceImpl implements AccountService {
     /**
      * Refresh 토큰 Cookie에 설정
      */
-    public void setRefreshToken(String token, HttpServletResponse response) {
+    private void setRefreshToken(String token, HttpServletResponse response) {
         // Refresh 토큰 cookie 설정
         final ResponseCookie cookie = ResponseCookie.from("RID", token)
                 .httpOnly(true)     //  브라우저에서 쿠키로 접근 불가 (XSS 공격 차단)

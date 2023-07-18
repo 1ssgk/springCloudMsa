@@ -1,0 +1,132 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "My API",
+    "description" : "My API description",
+    "version" : "0.1.0"
+  },
+  "servers" : [ {
+    "url" : "https://localhost:40004"
+  } ],
+  "tags" : [ ],
+  "paths" : {
+    "/login" : {
+      "post" : {
+        "tags" : [ "login" ],
+        "summary" : "인증 및 토큰 발급",
+        "description" : "인증 및 토큰 발급",
+        "operationId" : "login",
+        "requestBody" : {
+          "content" : {
+            "application/json;charset=UTF-8" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/login Request"
+              },
+              "examples" : {
+                "login" : {
+                  "value" : "{\n  \"idToken\" : \"oauthToken\"\n}"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "200",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/login Response"
+                },
+                "examples" : {
+                  "login" : {
+                    "value" : "{\n  \"accessToken\" : \"access\",\n  \"refreshToken\" : \"refresh\",\n  \"name\" : \"name\",\n  \"email\" : \"email\",\n  \"type\" : \"type\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reissue" : {
+      "get" : {
+        "tags" : [ "reissue" ],
+        "summary" : "토큰 재발급",
+        "description" : "토큰 재발급",
+        "operationId" : "reissue",
+        "responses" : {
+          "200" : {
+            "description" : "200",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/reissue Response"
+                },
+                "examples" : {
+                  "reissue" : {
+                    "value" : "{\n  \"accessToken\" : \"access_token\",\n  \"refreshToken\" : \"refresh_token\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "login Request" : {
+        "title" : "login Request",
+        "type" : "object",
+        "properties" : {
+          "idToken" : {
+            "type" : "string",
+            "description" : "oauth 토큰"
+          }
+        }
+      },
+      "reissue Response" : {
+        "title" : "reissue Response",
+        "type" : "object",
+        "properties" : {
+          "accessToken" : {
+            "type" : "string",
+            "description" : "Access Token"
+          },
+          "refreshToken" : {
+            "type" : "string",
+            "description" : "Refresh Token"
+          }
+        }
+      },
+      "login Response" : {
+        "title" : "login Response",
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "이름"
+          },
+          "type" : {
+            "type" : "string",
+            "description" : "oauth 구분"
+          },
+          "accessToken" : {
+            "type" : "string",
+            "description" : "Access Token"
+          },
+          "email" : {
+            "type" : "string",
+            "description" : "이메일"
+          },
+          "refreshToken" : {
+            "type" : "string",
+            "description" : "Refresh Token"
+          }
+        }
+      }
+    }
+  }
+}

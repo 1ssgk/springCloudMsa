@@ -1,0 +1,16 @@
+[[api-login]]
+== 유저 사용자 등록(User Register API)
+ROLE_USER 권한을 가지는 사용자를 생성합니다.
+
+====== 요청 형식
+include::{snippets}/login/http-request.adoc[]
+include::{snippets}/login/request-fields.adoc[]
+====== Request Body
+include::{snippets}/login/request-body.adoc[]
+====== 응답 형식
+include::{snippets}/login/http-response.adoc[]
+include::{snippets}/login/response-fields.adoc[]
+====== Response Body
+include::{snippets}/login/response-body.adoc[]
+====== Try with curl
+include::{snippets}/login/curl-request.adoc[]

@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.core.HttpHeaders;
 import java.security.Principal;
 
 @Slf4j
@@ -37,17 +36,17 @@ public class AuthController {
                 .body(tokenDto);
     }
 
-    @GetMapping("/authenticate")
-    public ResponseEntity authenticate(HttpServletRequest request) {
-
-        System.out.println("test" + request);
-        System.out.println("test header" + request.getHeader(HttpHeaders.AUTHORIZATION));
-
-
-        return ResponseEntity
-                .status(HttpStatus.UNAUTHORIZED)
-                .build();
-    }
+//    @GetMapping("/authenticate")
+//    public ResponseEntity authenticate(HttpServletRequest request) {
+//
+//        System.out.println("test" + request);
+//        System.out.println("test header" + request.getHeader(HttpHeaders.AUTHORIZATION));
+//
+//
+//        return ResponseEntity
+//                .status(HttpStatus.UNAUTHORIZED)
+//                .build();
+//    }
 
     @GetMapping("/reissue")
     public ResponseEntity reissue(HttpServletRequest request, HttpServletResponse response, Principal principal) {

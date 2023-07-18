@@ -9,7 +9,6 @@ import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseCookie;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,7 +16,6 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.core.HttpHeaders;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -29,7 +27,8 @@ import java.util.Map;
 public class JwtUtils {
 
     private static final long TOKEN_VALIDITY = 3600 * 30L;
-    private static final long TOKEN_VALIDITY_REMEMBER = 2592000000L;
+    //private static final long TOKEN_VALIDITY_REMEMBER = 2592000000L;
+    private static final long TOKEN_VALIDITY_REMEMBER = 3600L;
 
     @Value("${jwt.secret}")
     private String secret;

@@ -34,11 +34,10 @@ public class SecurityConfig {
                 .and()
                 .authorizeRequests()
 
-                .antMatchers("/test", "/login", "/authenticate").permitAll()
+                .antMatchers("/test", "/login", "/authenticate","/v3/api-docs","/docs/**").permitAll()
                 .anyRequest().authenticated();
 
-        http
-                .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
