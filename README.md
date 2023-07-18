@@ -1,6 +1,8 @@
 
 # Spring cloud 환경 공부
 
+공부로 이것저것 다해보는 중..
+
 
 
 ## 1. apigateway
@@ -8,15 +10,12 @@
 Spring Cloud Apigateway 서버.
 
 외부망에서 접속이 가능하게 열어놓고 사용하면 될것 같다.
-
-- 해야할것
-</br> 
-user-service에서 로그인이 성공한 경우 제공되는 jwt-token에 대한 필터 설정 해야함.
+- globalfilter 를 이용하여 access token 검증
 
 </br>
 </br>
 
-## 2. user-service
+## 2. user-service ( 사용 X )
 
 Spring OAuth2 를 이용한 로그인 인증방식을 구현한 서버이다.
 현재 google oauth 연동
@@ -58,6 +57,18 @@ spring:
 ```
 위 예제로 작성되면 **config 서버**와 연결되어있는 **git repository** 에서 </br>
 **apigateway-service-local.yml** 의 파일의 설정으로 서버가 실행된다.
+
+
+## 5. auth-server
+
+토큰 발급 및 재발급을 하는 서버 이다.
+
+현재 google api client를 이용하여 인증 통과 시 토큰을 발급해주는 방향으로 만들어져있다.
+
+spring rest docs 와 swagger-ui를 이용한 api 문서 작성도 해보고 있다.
+
+swagger-ui는 로컬에 도커를 이용.
+swagger-ui서버를 따로 띄워 각 서버의 문서들을 보아 보는형태.
 
 
 
